@@ -1,0 +1,7 @@
+<webscript>
+  <shortname>Search Dashlet</shortname>
+  <description>A dashlet which will allow a search of the current site to be carried out</description>
+  <url>/com/surevine/alfresco/searchdashlet/dashlet</url>
+  <authentication>user</authentication>
+  <family>dashlet</family>
+</webscript>
