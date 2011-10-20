@@ -1,4 +1,4 @@
-<#include "../../../component.head.inc">
+<#include "/org/alfresco/components/component.head.inc">
 
 <#-- Anything to include in the page header - e.g. css and scripts -->
 <#macro renderHead>

@@ -1,13 +1,13 @@
 <#include "../../../component.head.inc">
 
 <#-- Anything to include in the page header - e.g. css and scripts -->
-<#macro renderHeadBoilerplate>
+<#macro renderHead>
 	<@link rel="stylesheet" type="text/css" href="${page.url.context}/path/to/boilerplate.css" />
 	<@script type="text/javascript" src="${page.url.context}/path/to/boilerplate.js"></@script>
 </#macro>
 
 <#-- This will be rendered into the page -->
-<#macro renderBodyBoilerplate htmlId>
+<#macro renderBody htmlId>
 	<div id="${htmlId?html}">
 		<p>Content Here</p>
 	</div>
