@@ -7,15 +7,14 @@
 </#macro>
 
 <#-- This will be rendered into the page -->
-<#macro renderBody htmlId>
+<#macro renderHtml htmlId>
 	<div id="${htmlId?html}">
 		<p>Content Here</p>
 	</div>
 	
 	<script type="text/javascript">
 		//<![CDATA[
-		new Alfresco.Boilerplate("${htmlId?js_string}")
-			.setMessages(${messages});
+		new Alfresco.Boilerplate("${htmlId?js_string}");
 		//]]>
 	</script>
 </#macro>

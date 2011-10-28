@@ -1,0 +1,5 @@
+/* Enter any css for your widget here */
+.search-dashlet-results .yui-dt table {
+	width: 100%;
+	border: none;
+}

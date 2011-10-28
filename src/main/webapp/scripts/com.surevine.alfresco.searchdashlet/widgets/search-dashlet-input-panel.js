@@ -123,13 +123,34 @@
 		 * @method onReady
 		 */
 		onReady : function() {
+			// The search button
+			this.widgets.searchButton = Alfresco.util.createYUIButton(this,
+					"searchButton", this.searchClicked);
+
 			// The SearchDashletInput
 			this.widgets.input = Alfresco.util.ComponentManager.get(this.id + "-input");
+			
+			this.widgets.form = Dom.get(this.id + "-form");
+			
+			Event.addListener(this.widgets.form, "submit", this.searchClicked, this, true);
 		},
 
 		// +++ PRIVATE METHODS
 
-
+		/**
+		 * Called when the search button is clicked
+		 * 
+		 * @private
+		 * @method searchClicked
+		 */
+		searchClicked : function(evt) {
+			this.onSearch.fire({
+				term : this.widgets.input.getValue()
+			});
+			
+			Event.stopEvent(evt);
+		},
+		
 		/**
 		 * Gets a custom message
 		 * 

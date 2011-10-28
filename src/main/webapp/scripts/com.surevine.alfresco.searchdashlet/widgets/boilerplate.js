@@ -161,7 +161,7 @@
         _msg : function(messageId)
         {
             return Alfresco.util.message.call(this, messageId,
-                    "Alfresco.EnhancedSecuritySingleValueSelector",
+                    "Alfresco.Boilerplate",
                     Array.prototype.slice.call(arguments).slice(1));
         }
     };

@@ -7,19 +7,31 @@
 
 	<#import "search-dashlet-input.lib.ftl" as searchDashletInput />
 	<@searchDashletInput.renderHead />
+
+	<#import "search-dashlet-order-by-input.lib.ftl" as searchDashletOrderByInput />
+	<@searchDashletOrderByInput.renderHead />
 </#macro>
 
 <#-- This will be rendered into the page -->
-<#macro renderBody htmlId>
+<#macro renderHtml htmlId>
 	<#import "search-dashlet-input.lib.ftl" as searchDashletInput />
+	<#import "search-dashlet-order-by-input.lib.ftl" as searchDashletOrderByInput />
 
 	<div id="${htmlId?html}">
-		<@searchDashletInput.renderBody htmlId = htmlId + "-input" />
+		<form id="${htmlId?html}-form">
+			<div class="toolbar flat-button">
+				<@searchDashletInput.renderHtml htmlId = htmlId + "-input" />
+				<div class="search-button-container align-right"><button id="${htmlId?html}-searchButton">${msg("search")}</button></div>
+			</div>
+			<div class="toolbar flat-button">
+				<@searchDashletOrderByInput.renderHtml htmlId = htmlId + "-orderby" />
+			</div>
+		</form>
 	</div>
 	
 	<script type="text/javascript">
 		//<![CDATA[
-		new Alfresco.SearchDashletInput("${htmlId?js_string}");
+		new Alfresco.SearchDashletInputPanel("${htmlId?js_string}");
 		//]]>
 	</script>
 </#macro>

@@ -1,11 +1,10 @@
 /**
- * SearchDashletInput widget.
+ * SearchDashletOrderByInput widget.
  * 
- * Provides the term input and a search button so that the user can carry out a
- * search
+ * Provides the options for ordering the results
  * 
  * @namespace Alfresco
- * @class SearchDashletInput
+ * @class SearchDashletOrderByInput
  */
 (function() {
 	/**
@@ -19,14 +18,14 @@
 	var $html = Alfresco.util.encodeHTML;
 
 	/**
-	 * SearchDashletInput constructor.
+	 * SearchDashletOrderByInput constructor.
 	 * 
 	 * @param {String}
 	 *            htmlId The HTML id of the parent element
-	 * @return {Alfresco.SearchDashletInput} The new instance
+	 * @return {Alfresco.SearchDashletOrderByInput} The new instance
 	 * @constructor
 	 */
-	Alfresco.SearchDashletInput = function(htmlId) {
+	Alfresco.SearchDashletOrderByInput = function(htmlId) {
 		/* Mandatory properties */
 		this.name = "Alfresco.Boilerplate";
 		this.id = htmlId;
@@ -36,7 +35,7 @@
 		this.modules = {};
 
 		/* Initialise the events */
-		this.onSearch = new YAHOO.util.CustomEvent("onSearch", this);
+		this.onChange = new YAHOO.util.CustomEvent("onChange", this);
 
 		/* Register this component */
 		Alfresco.util.ComponentManager.register(this);
@@ -53,7 +52,7 @@
 	// Alfresco.Boilerplate.xxx = xxx;
 
 	// Prototype definition
-	Alfresco.SearchDashletInput.prototype = {
+	Alfresco.SearchDashletOrderByInput.prototype = {
 		/**
 		 * Object container for initialization options
 		 * 
@@ -123,11 +122,21 @@
 		 * @method onReady
 		 */
 		onReady : function() {
-			this.widgets.searchTerm = Dom.get(this.id + "-searchTerm");
+			this.widgets.order = new YAHOO.widget.ButtonGroup(this.id + "-orderby",
+					{
+						
+					});
 		},
-		
-		getValue : function() {
-			return this.widgets.searchTerm.value;
+
+		/**
+		 * Returns the currently selected order value
+		 * 
+		 * @public
+		 * @method getOrder
+		 * @returns string The selected order value
+		 */
+		getOrder : function() {
+			return this.widgets.order.get("value");
 		},
 
 		// +++ PRIVATE METHODS
