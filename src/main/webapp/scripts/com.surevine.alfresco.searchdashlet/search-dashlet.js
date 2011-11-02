@@ -144,10 +144,6 @@
 
 			// The SearchDashletResults
 			this.widgets.results = Alfresco.util.ComponentManager.get(this.id + "-results");
-
-			this.widgets.inputPanel.onSearch.subscribe(function(event, data) {
-				this.widgets.results.doSearch(this.options.siteId, data[0].term, null, data[0].orderBy);
-			}, this, true);
 		},
 
 		// +++ PRIVATE METHODS

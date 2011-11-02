@@ -126,7 +126,6 @@
 
 			// The SearchDashletInput
 			this.widgets.termInput = Alfresco.util.ComponentManager.get(this.id + "-termInput");
-			this.widgets.orderByInput = Alfresco.util.ComponentManager.get(this.id + "-orderByInput");
 			
 			this.widgets.form = Dom.get(this.id + "-form");
 			
@@ -142,11 +141,6 @@
 		 * @method searchClicked
 		 */
 		searchClicked : function(evt) {
-			this.onSearch.fire({
-				term : this.widgets.termInput.getValue(),
-				orderBy : this.widgets.orderByInput.getValue()
-			});
-			
 			Event.stopEvent(evt);
 		},
 		

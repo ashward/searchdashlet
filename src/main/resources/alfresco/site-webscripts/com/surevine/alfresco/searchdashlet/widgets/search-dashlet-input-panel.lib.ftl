@@ -7,24 +7,17 @@
 
 	<#import "search-dashlet-term-input.lib.ftl" as searchDashletTermInput />
 	<@searchDashletTermInput.renderHead />
-
-	<#import "search-dashlet-order-by-input.lib.ftl" as searchDashletOrderByInput />
-	<@searchDashletOrderByInput.renderHead />
 </#macro>
 
 <#-- This will be rendered into the page -->
 <#macro renderHtml htmlId>
 	<#import "search-dashlet-term-input.lib.ftl" as searchDashletTermInput />
-	<#import "search-dashlet-order-by-input.lib.ftl" as searchDashletOrderByInput />
 
 	<div id="${htmlId?html}">
 		<form id="${htmlId?html}-form">
 			<div class="toolbar flat-button">
 				<@searchDashletTermInput.renderHtml htmlId = htmlId + "-termInput" />
 				<div class="search-button-container align-right"><button id="${htmlId?html}-searchButton">${msg("search")}</button></div>
-			</div>
-			<div class="toolbar flat-button">
-				<@searchDashletOrderByInput.renderHtml htmlId = htmlId + "-orderByInput" />
 			</div>
 		</form>
 	</div>
