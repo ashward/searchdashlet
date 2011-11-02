@@ -29,7 +29,7 @@
     Alfresco.Boilerplate = function(htmlId)
     {
         /* Mandatory properties */
-        this.name = "Alfresco.Boilerplate";
+        this.name = "Alfresco.Boilerplate";	// TODO Rename
         this.id = htmlId;
 
         /* Initialise prototype properties */
@@ -37,6 +37,7 @@
         this.modules = {};
 
         /* Initialise the events */
+        // TODO Instantiate all the public events here (not in onReady)
 //        this.onXXX = new YAHOO.util.CustomEvent("onXXX", this);
 
         /* Register this component */
@@ -51,10 +52,11 @@
     };
 
     // +++ Static properties
+    // TODO Add static properties
 //    Alfresco.Boilerplate.xxx = xxx;
      
     // Prototype definition
-    Alfresco.Boilerplate.prototype = {
+    Alfresco.Boilerplate.prototype = {	// TODO Rename
         /**
          * Object container for initialization options
          * 
@@ -62,7 +64,7 @@
          * @type object
          */
         options : {
-            // Put any config options here
+            // TODO Put any config options here
         },
 
         /**
@@ -83,7 +85,7 @@
 
 
         // +++ PUBLIC EVENTS
-
+        // TODO Add public events
         /**
          * xxx
          * 
@@ -109,22 +111,6 @@
         },
 
         /**
-         * Set messages for this component.
-         * 
-         * @method setMessages
-         * @param obj
-         *                {object} Object literal specifying a set of messages
-         * @return {Alfresco.EnhancedSecurityVisibilityCount} returns 'this' for
-         *         method chaining
-         */
-        setMessages : function(obj)
-        {
-            Alfresco.util.addMessages(obj, this.name);
-
-            return this;
-        },
-
-        /**
          * Fired by YUILoaderHelper when required component script files have
          * been loaded into the browser.
          * 
@@ -144,9 +130,11 @@
          */
         onReady : function()
         {
-        	// Initialise the UI
+        		// TODO Initialise the UI
         },
 
+        // TODO Add public methods
+        
         // +++ PRIVATE METHODS
 
         /**
@@ -161,7 +149,7 @@
         _msg : function(messageId)
         {
             return Alfresco.util.message.call(this, messageId,
-                    "Alfresco.Boilerplate",
+                    "Alfresco.ParentComponent",	// TODO Replace with name of component
                     Array.prototype.slice.call(arguments).slice(1));
         }
     };

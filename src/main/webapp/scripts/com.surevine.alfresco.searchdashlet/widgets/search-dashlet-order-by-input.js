@@ -122,10 +122,7 @@
 		 * @method onReady
 		 */
 		onReady : function() {
-			this.widgets.order = new YAHOO.widget.ButtonGroup(this.id + "-orderby",
-					{
-						
-					});
+			
 		},
 
 		/**
@@ -135,8 +132,14 @@
 		 * @method getOrder
 		 * @returns string The selected order value
 		 */
-		getOrder : function() {
-			return this.widgets.order.get("value");
+		getValue : function() {
+			var checkedRadio = YAHOO.util.Selector.query("input:checked", this.id + "-orderby", true);
+			
+			if(checkedRadio) {
+				return checkedRadio.getAttribute("value");
+			}
+			
+			return null;
 		},
 
 		// +++ PRIVATE METHODS

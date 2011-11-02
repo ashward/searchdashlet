@@ -12,8 +12,9 @@
 		<div class="align-left">
 			<div class="align-left"><label for="${htmlId?html}-orderby">${msg("orderby")}</label></div>
 			<div id="${htmlId?html}-orderby" class="align-left">
-				<input type="radio" name="orderby" value="" title="${msg("orderby.relevance")}" id="${htmlId?html}-relevanceRadio" checked="checked" />
-				<input type="radio" name="orderby" value="cm:title" title="${msg("orderby.title")}" id="${htmlId}-titleRadio" />
+				<input type="radio" name="orderby" value="" title="${msg("orderby.relevance")}" id="${htmlId?html}-relevanceRadio" checked="checked" /><label for="${htmlId?html}-relevanceRadio"> ${msg("orderby.relevance")}</label>
+				<input type="radio" name="orderby" value="cm:name" title="${msg("orderby.name")}" id="${htmlId}-nameRadio" /><label for="${htmlId}-nameRadio"> ${msg("orderby.name")}</label>
+				<input type="radio" name="orderby" value="cm:title" title="${msg("orderby.title")}" id="${htmlId}-titleRadio" /><label for="${htmlId}-titleRadio"> ${msg("orderby.title")}</label>
 			</div>
 		</div>
 	</div>

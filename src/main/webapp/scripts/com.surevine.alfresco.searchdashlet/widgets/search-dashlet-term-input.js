@@ -1,11 +1,11 @@
 /**
- * SearchDashletInput widget.
+ * SearchDashletTermInput widget.
  * 
  * Provides the term input and a search button so that the user can carry out a
  * search
  * 
  * @namespace Alfresco
- * @class SearchDashletInput
+ * @class SearchDashletTermInput
  */
 (function() {
 	/**
@@ -26,9 +26,9 @@
 	 * @return {Alfresco.SearchDashletInput} The new instance
 	 * @constructor
 	 */
-	Alfresco.SearchDashletInput = function(htmlId) {
+	Alfresco.SearchDashletTermInput = function(htmlId) {
 		/* Mandatory properties */
-		this.name = "Alfresco.Boilerplate";
+		this.name = "Alfresco.SearchDashletTermInput";
 		this.id = htmlId;
 
 		/* Initialise prototype properties */
@@ -49,11 +49,8 @@
 		return this;
 	};
 
-	// +++ Static properties
-	// Alfresco.Boilerplate.xxx = xxx;
-
 	// Prototype definition
-	Alfresco.SearchDashletInput.prototype = {
+	Alfresco.SearchDashletTermInput.prototype = {
 		/**
 		 * Object container for initialization options
 		 * 

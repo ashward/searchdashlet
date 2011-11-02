@@ -138,13 +138,15 @@
 		 * @param order
 		 *            an array of fields to order by
 		 */
-		doSearch : function(term, tags, orderBy) {
+		doSearch : function(siteId, term, tags, orderBy) {
 	         // Success handler
 	         function successHandler(sRequest, oResponse, oPayload)
 	         {
 		         // empty results table
 		         this.widgets.dataTable.deleteRows(0, this.widgets.dataTable.getRecordSet().getLength());
 
+		         this.widgets.dataTable.set("MSG_EMPTY", this._msg("results.nodata"));
+		         
 	            this.widgets.dataTable.onDataReturnInitializeTable.call(this.widgets.dataTable, sRequest, oResponse, oPayload);
 	         }
 	         
@@ -172,7 +174,7 @@
 	            }
 	         }
 	         
-	         this.widgets.dataSource.sendRequest(this._buildSearchParams(null, term, tags, orderBy),
+	         this.widgets.dataSource.sendRequest(this._buildSearchParams(siteId, term, tags, orderBy),
 	         {
 	            success: successHandler,
 	            failure: failureHandler,
@@ -202,7 +204,7 @@
 				// add title (if any) to displayname area
 				var title = oRecord.getData("title");
 				if (title && title !== displayName) {
-					desc += '<span class="title">(' + $html(title) + ')</span>';
+					desc += ' <span class="itemtitle">(' + $html(title) + ')</span>';
 				}
 				desc += '</h3>';
 
@@ -221,7 +223,8 @@
 					+ "-results", columnDefs, this.widgets.dataSource, {
 				renderLoopSize : Alfresco.util.RENDERLOOPSIZE,
 				initialLoad : false,
-				MSG_LOADING : ""
+				MSG_LOADING : "",
+				MSG_EMPTY : this._msg("results.notloaded")
 			});
 		},
 
@@ -229,7 +232,7 @@
 	       * Constructs the completed browse url for a record.
 	       * @param record {string} the record
 	       */
-	      _getBrowseUrlForRecord: function Search__getBrowseUrlForRecord(record)
+	      _getBrowseUrlForRecord: function(record)
 	      {
 	         var url = null;
 	         
@@ -317,7 +320,7 @@
 	         return (url !== null ? url : '#');
 	      },
 	      
-	      _buildSpaceNamePath: function Search__buildSpaceNamePath(pathParts, name)
+	      _buildSpaceNamePath: function(pathParts, name)
 	      {
 	         return (pathParts.length !== 0 ? ("/" + pathParts.join("/")) : "") + "/" + name;
 	      },
@@ -331,7 +334,7 @@
 		 *            slash For a repository item, this can never be empty - but
 		 *            will contain leading slash and Company Home root
 		 */
-		_getBrowseUrlForFolderPath : function Search__getBrowseUrlForFolderPath(
+		_getBrowseUrlForFolderPath : function(
 				path, site) {
 			var url = null;
 			if (site) {
@@ -352,7 +355,7 @@
 	       *
 	       * @method _buildSearchParams
 	       */
-	      _buildSearchParams: function Search__buildSearchParams(siteId, searchTerm, searchTag, orderBy)
+	      _buildSearchParams: function(siteId, searchTerm, searchTag, orderBy)
 	      {
 	         var params = YAHOO.lang.substitute("site={site}&term={term}&tag={tag}&maxResults={maxResults}&sort={sort}",
 	         {

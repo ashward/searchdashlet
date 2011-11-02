@@ -28,7 +28,7 @@
 	 */
 	Alfresco.SearchDashletInputPanel = function(htmlId) {
 		/* Mandatory properties */
-		this.name = "Alfresco.Boilerplate";
+		this.name = "Alfresco.SearchDashletInputPanel";
 		this.id = htmlId;
 
 		/* Initialise prototype properties */
@@ -48,9 +48,6 @@
 
 		return this;
 	};
-
-	// +++ Static properties
-	// Alfresco.Boilerplate.xxx = xxx;
 
 	// Prototype definition
 	Alfresco.SearchDashletInputPanel.prototype = {
@@ -128,7 +125,8 @@
 					"searchButton", this.searchClicked);
 
 			// The SearchDashletInput
-			this.widgets.input = Alfresco.util.ComponentManager.get(this.id + "-input");
+			this.widgets.termInput = Alfresco.util.ComponentManager.get(this.id + "-termInput");
+			this.widgets.orderByInput = Alfresco.util.ComponentManager.get(this.id + "-orderByInput");
 			
 			this.widgets.form = Dom.get(this.id + "-form");
 			
@@ -145,7 +143,8 @@
 		 */
 		searchClicked : function(evt) {
 			this.onSearch.fire({
-				term : this.widgets.input.getValue()
+				term : this.widgets.termInput.getValue(),
+				orderBy : this.widgets.orderByInput.getValue()
 			});
 			
 			Event.stopEvent(evt);

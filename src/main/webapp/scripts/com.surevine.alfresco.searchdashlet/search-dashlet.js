@@ -28,7 +28,7 @@
 	 */
 	Alfresco.SearchDashlet = function(htmlId) {
 		/* Mandatory properties */
-		this.name = "Alfresco.Boilerplate";
+		this.name = "Alfresco.SearchDashlet";
 		this.id = htmlId;
 
 		/* Initialise prototype properties */
@@ -61,7 +61,7 @@
 		 * @type object
 		 */
 		options : {
-		// Put any config options here
+			siteId : ""
 		},
 
 		/**
@@ -105,6 +105,22 @@
 			return this;
 		},
 
+        /**
+         * Set messages for this component.
+         * 
+         * @method setMessages
+         * @param obj
+         *                {object} Object literal specifying a set of messages
+         * @return {Alfresco.EnhancedSecurityVisibilityCount} returns 'this' for
+         *         method chaining
+         */
+        setMessages : function(obj)
+        {
+            Alfresco.util.addMessages(obj, this.name);
+
+            return this;
+        },
+        
 		/**
 		 * Fired by YUILoaderHelper when required component script files have
 		 * been loaded into the browser.
@@ -130,8 +146,7 @@
 			this.widgets.results = Alfresco.util.ComponentManager.get(this.id + "-results");
 
 			this.widgets.inputPanel.onSearch.subscribe(function(event, data) {
-				alert(this);
-				this.widgets.results.doSearch(data[0].term, data[0].order);
+				this.widgets.results.doSearch(this.options.siteId, data[0].term, null, data[0].orderBy);
 			}, this, true);
 		},
 
@@ -149,7 +164,7 @@
 		 */
 		_msg : function(messageId) {
 			return Alfresco.util.message.call(this, messageId,
-					"Alfresco.SearchDashlet", Array.prototype.slice.call(
+					this.name, Array.prototype.slice.call(
 							arguments).slice(1));
 		}
 	};
