@@ -36,7 +36,7 @@
 		this.modules = {};
 
 		/* Initialise the events */
-		this.onSearch = new YAHOO.util.CustomEvent("onSearch", this);
+		this.onChange = new YAHOO.util.CustomEvent("onChange", this);
 
 		/* Register this component */
 		Alfresco.util.ComponentManager.register(this);
@@ -84,7 +84,7 @@
 		 * 
 		 * @property onSearch
 		 */
-		onSearch : null,
+		onChange : null,
 
 		// +++ PUBLIC METHODS
 		/**
@@ -121,6 +121,10 @@
 		 */
 		onReady : function() {
 			this.widgets.searchTerm = Dom.get(this.id + "-searchTerm");
+			
+			Event.addListener(this.widgets.searchTerm, "keyup", function(e) {
+				this.onChange.fire(this.getValue());
+			}, this, true);
 		},
 		
 		getValue : function() {

@@ -82,11 +82,11 @@
 		// +++ PUBLIC EVENTS
 
 		/**
-		 * Fired when the user triggers a search
+		 * Fired when the user changes the radio buttons
 		 * 
-		 * @property onSearch
+		 * @property onChange
 		 */
-		onSearch : null,
+		onChange : null,
 
 		// +++ PUBLIC METHODS
 		/**
@@ -122,7 +122,14 @@
 		 * @method onReady
 		 */
 		onReady : function() {
-			
+			Event.addListener(YAHOO.util.Selector.query("input[type='radio']", this.id + "-orderby"), "change",
+				function(e) {
+					var target = Event.getTarget(e);
+					
+					if(target.checked) {
+						this.onChange.fire(target.getAttribute("value"));
+					}
+				}, this, true);
 		},
 
 		/**
