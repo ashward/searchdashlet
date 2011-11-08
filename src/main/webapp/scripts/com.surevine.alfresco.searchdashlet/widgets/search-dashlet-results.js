@@ -138,7 +138,7 @@
 		 * @param order
 		 *            an array of fields to order by
 		 */
-		doSearch : function(siteId, term, tags, orderBy) {
+		doSearch : function(siteId, term, orderBy) {
 	         // Success handler
 	         function successHandler(sRequest, oResponse, oPayload)
 	         {
@@ -174,7 +174,7 @@
 	            }
 	         }
 	         
-	         this.widgets.dataSource.sendRequest(this._buildSearchParams(siteId, term, tags, orderBy),
+	         this.widgets.dataSource.sendRequest(this._buildSearchParams(siteId, term, null, orderBy),
 	         {
 	            success: successHandler,
 	            failure: failureHandler,
