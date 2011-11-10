@@ -11,7 +11,7 @@
 
 <script type="text/javascript">
 	//<![CDATA[
-	new Alfresco.SearchDashlet("${args.htmlid?js_string}")
+	new Surevine.SearchDashlet("${args.htmlid?js_string}")
 		.setOptions({
 			siteId : "${page.url.templateArgs.site!""?js_string}"
 		})

@@ -24,7 +24,7 @@
 	
 	<script type="text/javascript">
 		//<![CDATA[
-		new Alfresco.SearchDashletInputPanel("${htmlId?js_string}");
+		new Surevine.SearchDashletInputPanel("${htmlId?js_string}");
 		//]]>
 	</script>
 </#macro>

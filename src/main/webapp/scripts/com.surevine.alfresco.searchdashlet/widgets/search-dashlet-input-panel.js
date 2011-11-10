@@ -4,10 +4,14 @@
  * Provides the term input and a search button so that the user can carry out a
  * search
  * 
- * @namespace Alfresco
+ * @namespace Surevine
  * @class SearchDashletInputPanel
  */
+
 (function() {
+	// Set up the appropriate namespace (if it's not already)
+	typeof(Surevine) == "undefined" && ( Surevine = {} );
+
 	/**
 	 * YUI Library aliases
 	 */
@@ -26,9 +30,9 @@
 	 * @return {Alfresco.SearchDashletInputPanel} The new instance
 	 * @constructor
 	 */
-	Alfresco.SearchDashletInputPanel = function(htmlId) {
+	Surevine.SearchDashletInputPanel = function(htmlId) {
 		/* Mandatory properties */
-		this.name = "Alfresco.SearchDashletInputPanel";
+		this.name = "Surevine.SearchDashletInputPanel";
 		this.id = htmlId;
 
 		/* Initialise prototype properties */
@@ -50,7 +54,7 @@
 	};
 
 	// Prototype definition
-	Alfresco.SearchDashletInputPanel.prototype = {
+	Surevine.SearchDashletInputPanel.prototype = {
 		/**
 		 * Object container for initialization options
 		 * 
@@ -155,7 +159,7 @@
 		 */
 		_msg : function(messageId) {
 			return Alfresco.util.message.call(this, messageId,
-					"Alfresco.SearchDashlet", Array.prototype.slice.call(
+					"Surevine.SearchDashlet", Array.prototype.slice.call(
 							arguments).slice(1));
 		}
 	};
