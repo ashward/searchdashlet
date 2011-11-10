@@ -80,6 +80,11 @@
 		 * @type object
 		 */
 		modules : null,
+		
+		/**
+		 * Store the last value the user searched for
+		 */
+		lastSearch : null,
 
 		// +++ PUBLIC EVENTS
 
@@ -135,6 +140,15 @@
 			this.widgets.form = Dom.get(this.id + "-form");
 			
 			Event.addListener(this.widgets.form, "submit", this.searchClicked, this, true);
+			
+			this.widgets.orderByInput.onChange.subscribe(function(event, data) {
+				if(this.lastSearch) {
+					this.onSearch.fire({
+						term : this.lastSearch,
+						orderBy : data[0]
+					});
+				}
+			}, this, true);
 		},
 
 		// +++ PRIVATE METHODS
@@ -146,10 +160,15 @@
 		 * @method searchClicked
 		 */
 		searchClicked : function(evt) {
+			var term = this.widgets.termInput.getValue();
+			var orderBy = this.widgets.orderByInput.getValue();
+			
 			this.onSearch.fire({
-				term : this.widgets.termInput.getValue(),
-				orderBy : this.widgets.orderByInput.getValue()
+				term : term,
+				orderBy : orderBy
 			});
+			
+			this.lastSearch = term;
 			
 			Event.stopEvent(evt);
 		},
