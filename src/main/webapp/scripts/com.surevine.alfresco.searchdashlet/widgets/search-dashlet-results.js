@@ -4,10 +4,13 @@
  * Contains a live YUI data table which loads and displays the results of the
  * search
  * 
- * @namespace Alfresco
+ * @namespace Surevine
  * @class SearchDashletResults
  */
 (function() {
+	// Set up the appropriate namespace (if it's not already)
+	typeof(Surevine) == "undefined" && ( Surevine = {} );
+
 	/**
 	 * YUI Library aliases
 	 */
@@ -26,9 +29,9 @@
 	 * @return {Alfresco.SearchDashletResults} The new instance
 	 * @constructor
 	 */
-	Alfresco.SearchDashletResults = function(htmlId) {
+	Surevine.SearchDashletResults = function(htmlId) {
 		/* Mandatory properties */
-		this.name = "Alfresco.Boilerplate";
+		this.name = "Surevine.SearchDashletResults";
 		this.id = htmlId;
 
 		/* Initialise prototype properties */
@@ -50,7 +53,7 @@
 	// Alfresco.Boilerplate.xxx = xxx;
 
 	// Prototype definition
-	Alfresco.SearchDashletResults.prototype = {
+	Surevine.SearchDashletResults.prototype = {
 		/**
 		 * Object container for initialization options
 		 * 
@@ -380,7 +383,7 @@
 		 */
 		_msg : function(messageId) {
 			return Alfresco.util.message.call(this, messageId,
-					"Alfresco.SearchDashlet", Array.prototype.slice.call(
+					"Surevine.SearchDashlet", Array.prototype.slice.call(
 							arguments).slice(1));
 		}
 	};

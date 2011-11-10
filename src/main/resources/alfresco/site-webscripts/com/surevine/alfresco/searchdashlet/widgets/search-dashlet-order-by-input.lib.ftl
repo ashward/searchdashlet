@@ -21,7 +21,7 @@
 	
 	<script type="text/javascript">
 		//<![CDATA[
-		new Alfresco.SearchDashletOrderByInput("${htmlId?js_string}");
+		new Surevine.SearchDashletOrderByInput("${htmlId?js_string}");
 		//]]>
 	</script>
 </#macro>

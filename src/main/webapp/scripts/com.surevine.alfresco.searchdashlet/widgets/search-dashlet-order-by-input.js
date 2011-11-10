@@ -3,10 +3,13 @@
  * 
  * Provides the options for ordering the results
  * 
- * @namespace Alfresco
+ * @namespace Surevine
  * @class SearchDashletOrderByInput
  */
 (function() {
+	// Set up the appropriate namespace (if it's not already)
+	typeof(Surevine) == "undefined" && ( Surevine = {} );
+
 	/**
 	 * YUI Library aliases
 	 */
@@ -25,9 +28,9 @@
 	 * @return {Alfresco.SearchDashletOrderByInput} The new instance
 	 * @constructor
 	 */
-	Alfresco.SearchDashletOrderByInput = function(htmlId) {
+	Surevine.SearchDashletOrderByInput = function(htmlId) {
 		/* Mandatory properties */
-		this.name = "Alfresco.Boilerplate";
+		this.name = "Surevine.SearchDashletOrderByInput";
 		this.id = htmlId;
 
 		/* Initialise prototype properties */
@@ -52,7 +55,7 @@
 	// Alfresco.Boilerplate.xxx = xxx;
 
 	// Prototype definition
-	Alfresco.SearchDashletOrderByInput.prototype = {
+	Surevine.SearchDashletOrderByInput.prototype = {
 		/**
 		 * Object container for initialization options
 		 * 
@@ -162,7 +165,7 @@
 		 */
 		_msg : function(messageId) {
 			return Alfresco.util.message.call(this, messageId,
-					"Alfresco.SearchDashlet", Array.prototype.slice.call(
+					"Surevine.SearchDashlet", Array.prototype.slice.call(
 							arguments).slice(1));
 		}
 	};
